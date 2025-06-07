@@ -74,7 +74,7 @@ const DashboardIndicators = () => {
                 fill="#8884d8"
                 label
               >
-                {porEstado.map((entry, index) => (
+                {porEstado.map((_, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
@@ -96,7 +96,7 @@ const DashboardIndicators = () => {
                 fill="#8884d8"
                 label
               >
-                {porCultura.map((entry, index) => (
+                {porCultura.map((_, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
@@ -118,7 +118,7 @@ const DashboardIndicators = () => {
                 fill="#8884d8"
                 label
               >
-                {usoSolo.map((entry, index) => (
+                {usoSolo.map((_, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
