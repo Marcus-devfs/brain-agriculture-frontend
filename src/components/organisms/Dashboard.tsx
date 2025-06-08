@@ -9,6 +9,7 @@ import DashboardIndicators from '../molecules/DashboardIndicators'
 const Container = styled.div`
   padding: 2rem;
   margin: auto;
+  width: 100%;
 `
 
 const Dashboard: React.FC = () => {
@@ -28,9 +29,7 @@ const Dashboard: React.FC = () => {
             </Typography>
 
             {!showForm && (
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Button onClick={() => setShowForm(true)}>Cadastrar Novo Produtor</Button>
-                </div>
             )}
 
             {showForm && (

@@ -1,7 +1,33 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import Typography from '../atoms/Typography'
 
+const PageWrapper = styled.div`
+  display: flex;
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+`
+
+const Content = styled.div<{ open: boolean }>`
+  flex: 1;
+  margin-left: ${({ open }) => open ? '240px' : '0'};
+  transition: margin-left 0.3s ease-in-out;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* altura total da tela */
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+`
+
+const Header = styled.div`
+  height: 60px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.primary};
+  position: relative;
+`
 
 const Container = styled.div`
   display: flex;
@@ -21,14 +47,6 @@ const Sidebar = styled.nav<{ open: boolean }>`
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   transition: transform 0.3s ease-in-out;
   z-index: 100;
-`
-
-const Content = styled.div<{ open: boolean }>`
-  flex: 1;
-  margin-left: ${({ open }) => open ? '240px' : '0'};
-  transition: margin-left 0.3s ease-in-out;
-  position: relative;
-  width: 100%;
 `
 
 const Hamburger = styled.button`
@@ -59,6 +77,9 @@ const Menu = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-top: 40px;
+  padding-left: 15px;
+  width: 100%;
 `
 
 const MenuItem = styled(Link)`
@@ -74,7 +95,22 @@ const MenuItem = styled(Link)`
 `
 
 const Main = styled.main`
-  padding: ${({ theme }) => theme.spacing(4)};
+  flex: 1;
+  width: 100%;
+  overflow-x: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+`
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.primary};
 `
 
 
@@ -90,25 +126,33 @@ const MainLayout = ({ children }: Props) => {
   }
 
   return (
-    <Container>
-      <Sidebar open={sidebarOpen}>
-        <Menu>
-          <MenuItem to="/" onClick={handleCloseMenu}>Dashboard</MenuItem>
-          <MenuItem to="/add-producer" onClick={handleCloseMenu}>Cadastrar Produtor</MenuItem>
-          <MenuItem to="/producers" onClick={handleCloseMenu}>Lista de Produtores</MenuItem>
-          <MenuItem to="/fazendas" onClick={handleCloseMenu}>Fazendas</MenuItem>
-          <MenuItem to="/safras" onClick={handleCloseMenu}>Safras</MenuItem>
-        </Menu>
-      </Sidebar>
+    <PageWrapper>
+      <Container>
+        <Sidebar open={sidebarOpen}>
+          <CloseButton onClick={() => setSidebarOpen(false)}>
+            <Typography variant="primary">X Fechar</Typography>
+          </CloseButton>
+          <Menu>
+            <MenuItem to="/" onClick={handleCloseMenu}>Dashboard</MenuItem>
+            <MenuItem to="/producers" onClick={handleCloseMenu}>Produtores</MenuItem>
+            <MenuItem to="/property" onClick={handleCloseMenu}>Fazendas</MenuItem>
+            <MenuItem to="/planted-crops" onClick={handleCloseMenu}>Culturas Plantadas</MenuItem>
+            <MenuItem to="/crops" onClick={handleCloseMenu}>Safras</MenuItem>
+          </Menu>
+        </Sidebar>
 
-      <Content open={sidebarOpen}>
-        <Hamburger onClick={() => setSidebarOpen(prev => !prev)}>
-          <span /><span /><span />
-        </Hamburger>
+        <Content open={sidebarOpen}>
+          <Header>
+            {!sidebarOpen &&
+              <Hamburger onClick={() => setSidebarOpen((prev) => !prev)}>
+                <span /><span /><span />
+              </Hamburger>}
+          </Header>
 
-        <Main>{children}</Main>
-      </Content>
-    </Container>
+          <Main>{children}</Main>
+        </Content>
+      </Container >
+    </PageWrapper>
   )
 }
 

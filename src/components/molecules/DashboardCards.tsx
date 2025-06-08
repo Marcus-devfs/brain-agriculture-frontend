@@ -14,7 +14,7 @@ const Card = styled.div`
 background-color: #eeeeee;
   border-radius: ${({ theme }) => theme.borderRadius || '8px'};
   padding: 1.5rem;
-  width: 220px;
+  width:  calc(33.33% - 1.5rem);
   text-align: center;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* sombra mais forte */
   transition: transform 0.2s ease;

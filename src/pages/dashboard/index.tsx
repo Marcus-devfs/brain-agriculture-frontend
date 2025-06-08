@@ -1,4 +1,4 @@
-import Dashboard from '../components/organisms/Dashboard'
+import Dashboard from '../../components/organisms/Dashboard'
 
 const DashboardPage = () => {
   return <Dashboard />

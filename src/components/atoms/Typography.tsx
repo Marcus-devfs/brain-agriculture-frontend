@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 interface TypographyProps {
-  variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'body' | 'caption'
+  variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'body' | 'caption' | 'primary'
   mb?: number
 }
 
@@ -35,6 +35,10 @@ const variantStyles = (theme: any) => ({
     font-size: 1rem;
     color: ${theme.colors.textDark};
   `,
+  primary: css`
+  font-size: 1rem;
+  color: ${theme.colors.primary};
+`,
   caption: css`
     font-size: 0.8rem;
     color: ${theme.colors.textDark};
