@@ -4,7 +4,7 @@ import Typography from '../atoms/Typography'
 import Button from '../atoms/Button'
 import DashboardCards from '../molecules/DashboardCards'
 import DashboardIndicators from '../molecules/DashboardIndicators'
-import { useNavigate, useRoutes } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
   padding: 2rem;
