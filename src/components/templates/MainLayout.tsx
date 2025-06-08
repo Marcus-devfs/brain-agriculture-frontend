@@ -135,7 +135,7 @@ const MainLayout = ({ children }: Props) => {
           <Menu>
             <MenuItem to="/" onClick={handleCloseMenu}>Dashboard</MenuItem>
             <MenuItem to="/producers" onClick={handleCloseMenu}>Produtores</MenuItem>
-            <MenuItem to="/property" onClick={handleCloseMenu}>Fazendas</MenuItem>
+            <MenuItem to="/properties" onClick={handleCloseMenu}>Fazendas</MenuItem>
             <MenuItem to="/planted-crops" onClick={handleCloseMenu}>Culturas Plantadas</MenuItem>
             <MenuItem to="/crops" onClick={handleCloseMenu}>Safras</MenuItem>
           </Menu>

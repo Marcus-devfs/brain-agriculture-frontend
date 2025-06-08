@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.primary};
+  min-width: 140px;
   color: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => theme.spacing(1.75)} ${({ theme }) => theme.spacing(1.75)};
   border: none;

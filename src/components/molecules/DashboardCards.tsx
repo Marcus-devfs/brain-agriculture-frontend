@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FaSeedling, FaTractor, FaWarehouse } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
   display: flex;
@@ -49,6 +50,7 @@ const ActionText = styled.div`
 `
 
 const DashboardCards: React.FC = () => {
+  const navigate = useNavigate()
     return (
         <Container>
             <Card>
@@ -56,7 +58,7 @@ const DashboardCards: React.FC = () => {
                     <FaSeedling />
                 </IconWrapper>
                 <Title>Safras</Title>
-                <ActionText>Cadastrar &gt;</ActionText>
+                <ActionText onClick={() => navigate('/crop/new')}>Cadastrar &gt;</ActionText>
             </Card>
 
             <Card>
@@ -64,7 +66,7 @@ const DashboardCards: React.FC = () => {
                     <FaTractor />
                 </IconWrapper>
                 <Title>Cultura Plantada</Title>
-                <ActionText>Cadastrar  &gt;</ActionText>
+                <ActionText onClick={() => navigate('/planted-crop/new')}>Cadastrar  &gt;</ActionText>
             </Card>
 
             <Card>
@@ -72,7 +74,7 @@ const DashboardCards: React.FC = () => {
                     <FaWarehouse />
                 </IconWrapper>
                 <Title>Fazenda</Title>
-                <ActionText>Cadastrar &gt;</ActionText>
+                <ActionText onClick={() => navigate('/property/new')}>Cadastrar &gt;</ActionText>
             </Card>
         </Container>
     )

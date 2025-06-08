@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Typography from '../atoms/Typography'
 import Button from '../atoms/Button'
-import ProducerForm from '../molecules/ProducerForm'
 import DashboardCards from '../molecules/DashboardCards'
 import DashboardIndicators from '../molecules/DashboardIndicators'
+import { useNavigate, useRoutes } from 'react-router-dom'
 
 const Container = styled.div`
   padding: 2rem;
@@ -13,14 +13,9 @@ const Container = styled.div`
 `
 
 const Dashboard: React.FC = () => {
-    const [editingProducerId, setEditingProducerId] = useState<string | null>(null)
-    const [showForm, setShowForm] = useState(false)
 
-    // Fechar formulário
-    const handleCloseForm = () => {
-        setEditingProducerId(null)
-        setShowForm(false)
-    }
+    const navigate = useNavigate()
+
 
     return (
         <Container>
@@ -28,18 +23,7 @@ const Dashboard: React.FC = () => {
                 Dashboard de Produtores
             </Typography>
 
-            {!showForm && (
-                    <Button onClick={() => setShowForm(true)}>Cadastrar Novo Produtor</Button>
-            )}
-
-            {showForm && (
-                <>
-                    <ProducerForm
-                        editingId={editingProducerId}
-                        onClose={handleCloseForm}
-                    />
-                </>
-            )}
+            <Button onClick={() =>  navigate('/producer/new')}>Cadastrar Novo Produtor</Button>
 
             <DashboardCards />
             <DashboardIndicators />
