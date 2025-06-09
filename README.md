@@ -1,54 +1,64 @@
-# React + TypeScript + Vite
+# Brain Agriculture - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém a interface web desenvolvida como parte do desafio técnico da Brain Agriculture. A aplicação foi construída com **React**, **Vite** e **Styled Components**, e disponibilizada via **Vercel**.
 
-Currently, two official plugins are available:
+> ⚠️ Este projeto não foi finalizado pois o foco principal foi a entrega da versão **backend com Node + Express** em outro repositório, conforme o teste solicitava.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Acesso online
 
-## Expanding the ESLint configuration
+A aplicação pode ser acessada em produção pelo link:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+👉 [https://brain-agriculture-frontend.vercel.app](https://brain-agriculture-frontend.vercel.app)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📚 Tecnologias Utilizadas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React**
+- **Vite**
+- **Styled Components**
+- **TypeScript**
+- **React Router DOM**
+- **Axios**
+- **ESLint + Prettier**
+- **Vercel** (deploy)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## 📁 Estrutura de Páginas
+
+A aplicação possui as seguintes seções implementadas:
+
+- **Dashboard**: Resumo geral com métricas do sistema.
+- **Produtores**: Listagem e criação de produtores rurais.
+- **Fazendas**: Listagem e cadastro de propriedades rurais.
+- **Culturas**: Visualização e cadastro de culturas plantadas.
+- **Safras**: Visualização e criação de safras.
+
+> ⚠️ Algumas funcionalidades ainda estão incompletas ou em desenvolvimento.
+
+---
+
+## 🚀 Como rodar localmente
+
+### Pré-requisitos
+
+- Node.js (versão 18 ou superior)
+- NPM ou Yarn
+
+### Passos
+
+```bash
+# Clone o repositório
+git clone https://github.com/Marcus-devfs/brain-agriculture-frontend.git
+cd brain-agriculture-frontend
+
+# Instale as dependências
+npm install
+# ou
+yarn
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+# ou
+yarn dev
